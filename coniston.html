@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>3DGS rendered with gsplat.js</title>
+        <style>
+        body,
+        html {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+        }
+        canvas {
+          width: 100vw;
+          height: 100vh;
+        }
+        </style>
+    </head>
+
+    <body>
+        <canvas id="canvas"></canvas>
+
+        <script type="module">
+        import * as SPLAT from "https://cdn.jsdelivr.net/npm/gsplat@1.0.2";
+
+        const dataContainer = document.getElementById('data');
+        const renderer = new SPLAT.WebGLRenderer(canvas);
+        const scene = new SPLAT.Scene();
+        const camera = new SPLAT.Camera();
+        const controls = new SPLAT.OrbitControls(camera, canvas);
+
+        async function main() {
+            const url = "https://nate.art/coniston_raw_rotated.splat";
+
+            await SPLAT.Loader.LoadAsync(url, scene, () => {});
+
+            const frame = () => {
+                controls.update();
+                renderer.render(scene, camera);
+
+                requestAnimationFrame(frame);
+            };
+
+            requestAnimationFrame(frame);
+        }
+
+        main();
+
+        </script>
+    </body>
+</html>

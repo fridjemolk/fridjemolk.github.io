@@ -1,0 +1,41 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+
+body {
+  background-color: black;
+  color: lime;
+  font-family: 'Fira Code';
+}
+
+@supports (font-variation-settings: normal) {
+  body, code {
+    font-family: 'Fira Code VF', monospace;
+  }
+}
+
+/* Unvisited links */
+a:link {
+    color: chartreuse; /* Set your desired color for unclicked links */
+}
+
+/* Visited links */
+a:visited {
+    color: green; /* Set your desired color for clicked links */
+}
+
+/* Hovered links */
+a:hover {
+    color: lightseagreen; /* Set your desired color when a user hovers over the link */
+}
+
+/* Active links */
+a:active {
+    color: greenyellow; /* Set your desired color when the link is clicked */
+}
+
+/* Specify Fira Code font for code elements */
+code { 
+    font-family: 'Fira Code', monospace; 
+}

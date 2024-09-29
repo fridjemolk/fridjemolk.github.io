@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nate.art</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <iframe class="background" src="https://nate.art/david.html"style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:-1;">
+    Your browser doesn't support iframes
+</iframe>
+    
+    <div class="content">
+      <h1>nate's art site :3</h1>
+      <p>this is where i post my art i think</p>
+      
+      <p>shadertoy shaders i have made:</p>
+      
+      <ul>
+        <li><a href="https://nate.art/rt.html">a ray-tracted glass sphere (REQUIRES WEBCAM ACCESS)</a></li>
+        <li><a href="https://nate.art/modulodither.html">dithering using modulo</a></li>
+        <li><a href="https://nate.art/linedither.html">dithering using lines (REQUIRES WEBCAM ACCESS)</a></li>
+        <li><a href="https://nate.art/boxdither.html">dithering using boxes (REQUIRES WEBCAM ACCESS)</a></li>
+      </ul>
+
+      <p>p5js sketches i have made:</p>
+
+      <ul>
+        <li><a href="https://nate.art/2draymarching.html">a 2D demo to show how ray marching works</a></li>
+        <li><a href="https://nate.art/nbody.html">an interactive 2D n-body gravity sim (you can drag the sun around)</a></li>
+        <li><a href="https://nate.art/boids.html">boids :3 (click and they will swarm towards your mouse cursor)</a></li>
+        <li><a href="https://nate.art/delaunay.html">delaunay triangles</a></li>
+        <li><a href="https://nate.art/spherical.html">spherical coordinates demo (3D, use the click and drag to pan the camera)</a></li>
+        <li><a href="https://nate.art/gol.html">game of life</a></li>
+        <li><a href="https://nate.art/3body.html">a 2D 3-body gravity sim</a></li>
+        <li><a href="https://nate.art/iris.html">eye contact</a></li>
+      </ul>
+
+      <p>gaussian splats i have made (click and drag to pan camera):</p>
+
+      <ul>
+        <li><a href="https://nate.art/vna.html">a statue in the V&amp;A Museum in London</a></li>
+        <li><a href="https://nate.art/kew.html">a mossy rock at Kew Gardens in London</a></li>
+        <li><a href="https://nate.art/coniston.html">a water treatment facility half way up the Old Man of Coniston in the Lake District</a></li>
+      </ul>
+      
+      <p>videos i have made:</p>
+        
+        <p><iframe width="560" height="315" src="https://www.youtube.com/embed/ZVXG2GoqsTU?si=Us1loCzlE-a3NCzD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/I0ikg-Wu2As?si=f38xDDKuLb74jvCC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rm5OXFtRwxY?si=FdPR6AxfMWVCGe3h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </p>
+        <p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/6gELYn24r98?si=52WNnm8a_OxiHKQJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/aYuU-jL1YSA?si=eN6A9xcbMZRLCyPN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/zB7as28C2ys?si=TT1-nYY8I5Ht0Eza" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </p>
+    </div>
+    
+    <script>
+      setInterval(() => document.querySelector('p').innerHTML = `this is where i post my art i think<span style="opacity:${(Date.now() % 1000) < 500 ? 1 : 0}">_</span>`, 500);
+    </script>
+  </body>
+</html>
