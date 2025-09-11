@@ -1,5 +1,5 @@
 #version 300 es
-// Bitmap to ASCII (not really) fragment shader by movAX13h, September 2013 https://www.shadertoy.com/view/lssGDj
+// Bitmap to ASCII (not really) fragment shader by movAX13h, September 2013
 // This is the original shader that is now used in PixiJs, FL Studio and various other products.
 
 // Here's a little tool for new characters: thrill-project.com/archiv/coding/bitmap/
@@ -88,7 +88,7 @@ void main() {
     if (gray > 0.9535) n = 33061407;
     if (gray > 0.9767) n = 11512810;
     
-    vec2 p = mod((vTexCoord * char_scale) * u_resolution / 4.0, 2.0) - vec2(1.0);
+    vec2 p = mod((fract(vTexCoord *vec2(1.,-1.))* char_scale) * u_resolution / 4.0, 2.0) - vec2(1.0);
 
     // Output color based on character function
     col = col * character(n, p);
