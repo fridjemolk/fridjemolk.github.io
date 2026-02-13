@@ -48,10 +48,8 @@ vec3 colorBayerDither(vec2 pix, vec3 col, int colours){
 void main() {
     // Sample the texture using texture coordinates
     vec3 col = texture(u_tex, vTexCoord).rgb;
-    
-    vec2 p = mod((fract(vTexCoord *vec2(1.,-1.))* char_scale) * u_resolution / 4.0, 2.0) - vec2(1.0);
   
-    col = colorBayerDither(vTexCoord * u_resolution,col,16);//Final argument is number of colours
+    col = colorBayerDither(vTexCoord * (u_resolution*0.5),col,16);//Final argument is number of colours
 
     // Output color based on character function
     fragColor = vec4(col, 1.0);

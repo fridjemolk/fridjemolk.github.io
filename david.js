@@ -8,7 +8,7 @@ function preload() {
   normalRTShader = loadShader('normalMap.vert', 'normalMap.frag');
   David = loadModel('david_lowpoly.obj', true, handleModel, handleError, '.obj');
   norm_tex = loadImage('David_Norm.jpg');
-  if(Math.random() > 0.5){
+  if(Math.random() > 1.5){
     filterShader = loadShader('ascii.vert', 'ascii.frag');
     console.log("Choosing ASCII shader");
   } else {
