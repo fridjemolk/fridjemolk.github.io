@@ -1,15 +1,20 @@
 let David;
 let norm_tex;
-let normalShader;
-let asciiShader;
+let normalRTShader;
+let filterShader;
 let davidBuffer;
 
 function preload() {
-  normalShader = loadShader('normalMap.vert', 'normalMap.frag');
+  normalRTShader = loadShader('normalMap.vert', 'normalMap.frag');
   David = loadModel('david_lowpoly.obj', true, handleModel, handleError, '.obj');
   norm_tex = loadImage('David_Norm.jpg');
-  asciiShader = loadShader('ascii.vert', 'ascii.frag');
-  // If you have a separate shadow map, load it here
+  if(Math.random() > 0.5){
+    filterShader = loadShader('ascii.vert', 'ascii.frag');
+    console.log("Choosing ASCII shader");
+  } else {
+    filterShader = loadShader('dither.vert','dither.frag');
+    console.log("Choosing Dither shader");
+  }
 }
 
 function setup() {
@@ -26,17 +31,17 @@ function draw() {
     // Enable orbiting with the mouse
     //orbitControl();
     push();
-      // Use the custom shader
-      shader(normalShader);
+      // Use the RT shader
+      shader(normalRTShader);
 
       lightPos = createVector(0.0,sin(frameCount * 0.01) * 25, 25.0);
       //lightPos = rotateVectorY(lightPos,frameCount * 0.01);
 
       // Set Uniforms
-      normalShader.setUniform('u_tex', norm_tex);
-      normalShader.setUniform('lightPos', [lightPos.x, lightPos.y, lightPos.z]);
-      normalShader.setUniform('lightCol', [1.0, 0.35, 0.0]);
-      //normalShader.setUniform('lightStrength',1.0);
+      normalRTShader.setUniform('u_tex', norm_tex);
+      normalRTShader.setUniform('lightPos', [lightPos.x, lightPos.y, lightPos.z]);
+      normalRTShader.setUniform('lightCol', [1.0, 0.35, 0.0]);
+      //normalRTShader.setUniform('lightStrength',1.0);
 
       push();
       translate((width/2) - (width * 0.25),(height * 0.25),0);
@@ -50,13 +55,13 @@ function draw() {
     pop();
   davidBuffer.end();
   
-  // Activate the shader
-  shader(asciiShader);
+  // Activate the filter shader
+  shader(filterShader);
 
   // Set uniforms for resolution and texture
-  asciiShader.setUniform('u_resolution', [width, height]);
-  asciiShader.setUniform('u_tex', davidBuffer);
-  asciiShader.setUniform('char_scale', map(height,0,1440,0.5,1.0));
+  filterShader.setUniform('u_resolution', [width, height]);
+  filterShader.setUniform('u_tex', davidBuffer);
+  filterShader.setUniform('char_scale', map(height,0,1440,0.5,1.0));
   plane(davidBuffer.width,davidBuffer.height);  // A plane the same size as the canvas
   
 }
@@ -67,7 +72,7 @@ function handleModel(data) {
 }
 
 function handleError(error) {
-  console.error('Error:', error);
+  console.error('Model Loading Error:', error);
 }
 
 function rotateVectorY(vector, angle) {
