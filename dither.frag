@@ -1,16 +1,4 @@
 #version 300 es
-// Bitmap to ASCII (not really) fragment shader by movAX13h, September 2013
-// This is the original shader that is now used in PixiJs, FL Studio and various other products.
-
-// Here's a little tool for new characters: thrill-project.com/archiv/coding/bitmap/
-
-// update 2018-12-14: values for characters are integer now (were float)
-//                    since bit operations are available now, making use of them
-//                    instead of int(mod(n/exp2(p.x + 5.0*p.y), 2.0))
-// update 2023-04-21: added characters A-Z and 0-9 and some others
-//                    black/white mode does not use gray value anymore
-// update 2024-09-16 by fridje: modified shader to work with a P5JS sketch and wrap around 3D objects
-//
 precision mediump float;
 
 // Uniforms
